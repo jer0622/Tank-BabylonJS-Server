@@ -26,6 +26,10 @@ app.get('/favicon.ico', (req, res) => {
     res.sendFile(__dirname + "favicon.ico");
 });
 
+app.get('/socket.io/socket.io.js', (req, res) => {
+    res.sendFile(__dirname + "/socket.io/socket.io.js");
+});
+
 
 // Nombres d'update du server par seconde
 let nbServerUpdateSeconde = 10;
@@ -125,6 +129,6 @@ io.on('connection', (socket) => {
 // Port pour heroku
 let port = process.env.PORT || 3000;
 
-app.listen(port, () => {
+http.listen(port, () => {
     console.log("Server is running on port " + port);
 });
